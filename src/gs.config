@@ -6,6 +6,7 @@
 // @connect vk.com
 // @run-at document-start
 // @copyright 2019, Syleront
+// @license MIT
 // ==/UserScript==
 
 // This is a production build, source available at https://github.com/syleront/vk-raspisator
