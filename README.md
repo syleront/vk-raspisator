@@ -7,14 +7,14 @@
 * [Firefox](https://addons.mozilla.org/ru/firefox/addon/tampermonkey/)
 
 После чего переходите [сюда](https://openuserjs.org/src/scripts/Syleront/VK-Raspisator.user.js), и, если установлено расширение, появится окно установки, где тыкаете кнопку "**Установить**":<br>
-![](assets/install-btn.png)
+![](assets/screenshots/install-btn.png)
 
 После того как скрипт установлен, открываем (или обновляем) страницу с вк, и, если все нормально, то при нажатии на значок расширения, он покажет активные скрипты, и там должен быть наш:<br>
-![](assets/rs-in-menu.png)
+![](assets/screenshots/rs-in-menu.png)
 
 ## Использование
 Чтобы выбрать пост, по которому будет производится рассылка, достаточно найти нужный, и навести кнопку мыши на стрелку (справа от поста), где выбрать в выпадающем меню "**Расписатор**":<br>
-![](assets/arrow-menu.png)
+![](assets/screenshots/arrow-menu.png)
 
 После чего откроется основной бокс для рассылки:<br>
 ![](assets/screenshots/main-box.png)
