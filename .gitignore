@@ -1,0 +1,6 @@
+.vscode
+node_modules
+.codealike.json
+yarn.lock
+README.md
+/build

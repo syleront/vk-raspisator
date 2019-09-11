@@ -1,0 +1,36 @@
+<div class="audio">
+  <div tabindex="0" class="audio_row audio_row_with_cover _audio_row audio_can_add inlined audio_row2 rs_al"
+    data-full-id="%FULL_ID%" onclick="return getAudioPlayer().toggleAudio(this, event)" data-audio="%JSON_AUDIO%"
+    onmouseover="AudioUtils.onRowOver(this, event)" onmouseleave="AudioUtils.onRowLeave(this, event)">
+    <div class="audio_row_content _audio_row_content">
+      <button class="blind_label _audio_row__play_btn" aria-label="Воспроизвести "
+        onclick="getAudioPlayer().toggleAudio(this, event); return cancelEvent(event)"></button>
+
+      <div class="audio_row__cover"></div>
+      <div class="audio_row__cover_back _audio_row__cover_back"></div>
+      <div class="audio_row__cover_icon _audio_row__cover_icon"></div>
+      <div class="audio_row__counter"></div>
+      <div class="audio_row__play_btn"></div>
+
+      <div class="audio_row__inner">
+        <div class="audio_row__performer_title">
+          <div onmouseover="setTitle(this)" class="audio_row__performers">
+            <a class="artist_link" data-performer="%PERFORMER%">PERFORMER</a>
+          </div>
+          <div class="audio_row__title _audio_row__title" onmouseover="setTitle(this)">
+            <span class="audio_row__title_inner _audio_row__title_inner">TITLE</span>
+            <span class="audio_row__title_inner_subtitle _audio_row__title_inner_subtitle"></span>
+          </div>
+        </div>
+        <div class="audio_row__info _audio_row__info">
+          <div class="audio_row__duration audio_row__duration-s _audio_row__duration">TIME</div>
+        </div>
+      </div>
+
+      <div class="audio_player__place _audio_player__place"></div>
+    </div>
+  </div>
+  <div class="ui_thumb_x_button _close_btn rs_cl" role="link" aria-label="Не прикреплять">
+    <div class="ui_thumb_x"></div>
+  </div>
+</div>

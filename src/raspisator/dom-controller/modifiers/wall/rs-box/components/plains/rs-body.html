@@ -1,0 +1,68 @@
+<div class="rs-box">
+  <div class="header">
+    <span>Сообщение для рассылки</span>
+  </div>
+  <div class="input-container">
+    <textarea class="input"></textarea>
+    <div class="media_selector clear_fix">
+      <a class="ms_item ms_item_photo _type_photo" tabindex="0" data-title="Фотография" aria-label="Фотография"
+        role="link">
+        <span class="blind_label">Фотография</span>
+      </a>
+      <a class="ms_item ms_item_video _type_video" tabindex="0" data-title="Видеозапись" aria-label="Видеозапись"
+        role="link">
+        <span class="blind_label">Видеозапись</span>
+      </a>
+      <a class="ms_item ms_item_audio _type_audio" tabindex="0" data-title="Аудиозапись" aria-label="Аудиозапись"
+        role="link">
+        <span class="blind_label">Аудиозапись</span>
+      </a>
+      <a class="ms_item ms_item_doc _type_doc" tabindex="0" data-title="Документ" aria-label="Документ" role="link">
+        <span class="blind_label">Документ</span>
+      </a>
+    </div>
+  </div>
+  <div class="attachment-states"></div>
+  <div class="attachment-container">
+    <div class="photos"></div>
+    <div class="videos"></div>
+    <div class="audios"></div>
+    <div class="docs"></div>
+  </div>
+  <div class="settings-container">
+    <div class="header">Настройки</div>
+    <div class="rs_sl">
+      <div class="checkbox" data-param-type="sendBy" data-send-type="like" role="checkbox" aria-checked="false"
+        tabindex="0">
+        По лайкам
+      </div>
+    </div>
+    <div class="rs_sl">
+      <div class="checkbox on" data-param-type="sendBy" data-send-type="repost" role="checkbox" aria-checked="true"
+        tabindex="0">
+        По репостам
+      </div>
+    </div>
+    <div class="rs_sl">
+      <div class="checkbox" data-param-type="needSubscribe" role="checkbox" aria-checked="false" tabindex="0">
+        Должен быть подписан
+      </div>
+    </div>
+    <div class="rs_sl">
+      <div class="checkbox on" data-param-type="countRecievedUsers" role="checkbox" aria-checked="true" tabindex="0">
+        Учитывать получивших
+      </div>
+      <span class="hint_icon"
+        onmouseover="showTooltip(this, {text: 'При рассылке, скрипт сохраняет тех, кто уже получил роспись. Если параметр включен - он пропускает тех, кто уже получил роспись с данной записи. Если параметр выключен, то при рассылке прошлый список получивших (если он был) будет удален, и вместо него будет создан новый. Это полезно, если некоторые пользователи забыли открыть стену, и не получили роспись, либо в прошлый раз был достигнут лимит по оставленным записям.', dir: 'auto', shift: [22, 10], slide: 15, className: 'settings_tt'})">
+      </span>
+    </div>
+    <div class="rs_sl">
+      <div class="checkbox on" data-param-type="needWebApi" role="checkbox" aria-checked="true" tabindex="0">
+        Использовать Web Api
+      </div>
+      <span class="hint_icon"
+        onmouseover="showTooltip(this, {text: 'При создании поста, вконтакте оставляет пометку, с чего был сделан этот пост (android, ios, и тд.), в данном случае - приложение API.Console. Если этот параметр включен, то расписатор будет использовать Web Api для создания поста, и никаких пометок не будет. Однако, так как это внутренний способ самого вк, то стабильная работа не гарантируется. Рекомендуется оставить, если проявляются какие-то проблемы, то отключите.', dir: 'auto', shift: [22, 10], slide: 15, className: 'settings_tt'})">
+      </span>
+    </div>
+  </div>
+</div>
