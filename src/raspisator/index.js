@@ -17,8 +17,6 @@ class Raspisator {
     console.log("VVK-Raspisator Started");
     Css.load();
     this.Controller.init();
-
-    unsafeWindow.webBindings = new WebBindings();
   }
 }
 
