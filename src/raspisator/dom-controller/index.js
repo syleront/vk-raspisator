@@ -1,6 +1,8 @@
 import VKDomChangesListener from "./listener";
 import Modifiers from "./modifiers/index.js";
 
+// здесь принмаются элементы из обсервера (листенера)
+// и рассылаются по нужным функциям из контроллера
 class DomController {
   constructor(rs) {
     this.rs = rs;

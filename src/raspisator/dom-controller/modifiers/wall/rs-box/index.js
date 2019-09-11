@@ -12,6 +12,7 @@ class RsBox {
   load(postId) {
     const { rs } = this;
 
+    // создаем тело и основной бокс с ним
     const RsBody = new RaspisatorBody(rs, postId);
     const MainBox = new VKBox({
       title: "Расписатор",
@@ -19,6 +20,7 @@ class RsBox {
       width: 500
     });
 
+    // объект с функциями для боксов аттачей
     const Handlers = {
       onMediaChoose(type, media_id, info) {
         const { boxQueue, cur } = unsafeWindow;

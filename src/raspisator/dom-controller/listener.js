@@ -1,3 +1,4 @@
+// основной класс, следящий за изменениями в дереве
 class VKDomChangesListener {
   constructor() {
     this.events = [];
