@@ -29,7 +29,7 @@ class VKDomChangesListener {
         addedNodes.forEach(function nodeHandler(node) {
           const { classList, dataset } = node;
 
-          if (node.id === "wrap3" || node.id === "wrap2" || node.id === "wrap1" || node.id === "profile_wall") {
+          if (node.id === "wrap2"|| node.id === "profile_wall" || node.id === "group_wall") {
             const childList = node.querySelectorAll("*");
             Array.from(childList).forEach(nodeHandler);
           } else if (dataset && dataset.postId && classList && classList.contains("post")) {
