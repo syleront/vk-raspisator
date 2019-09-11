@@ -5,6 +5,8 @@
 // @match *://*.vk.com/*
 // @connect vk.com
 // @run-at document-start
+// @updateURL https://openuserjs.org/meta/Syleront/VK-Raspisator.meta.js
+// @downloadURL https://openuserjs.org/src/scripts/Syleront/VK-Raspisator.user.js
 // @copyright 2019, Syleront
 // @license MIT
 // ==/UserScript==
