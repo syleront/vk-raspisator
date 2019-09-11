@@ -27,7 +27,7 @@ export default {
   output: [
     {
       strict: false,
-      dir: "build",
+      file: "build/index.user.js",
       format: "iife",
       exports: "named"
     }
