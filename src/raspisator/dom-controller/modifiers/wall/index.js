@@ -4,10 +4,10 @@ import MenuElement from "./plains/menu-element";
 class Wall {
   constructor(rs) {
     this.rs = rs;
-    this.RsBoxInstance = new RsBox(rs);
   }
 
   postHandler(node) {
+    // функция, принимающая элемент с записью со стены
     const postId = node.dataset && node.dataset.postId;
 
     if (typeof postId !== "undefined") {
