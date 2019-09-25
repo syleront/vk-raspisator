@@ -48,8 +48,12 @@ class Api {
 
         let callInfo = r.replace(/^<!-+/, "").split("<!>");
 
-        if (callInfo[4] === "0") {
-          let json = JSON.parse(callInfo[5]);
+        if (callInfo[4] === "0" || callInfo.length === 1) {
+          let json = JSON.parse(callInfo.length === 1 ? callInfo[0] : callInfo[5]);
+
+          if (json.payload && json.payload[1]) {
+            json = JSON.parse(json.payload[1][0]);
+          }
 
           if (json.error) {
             throw json;
@@ -60,6 +64,7 @@ class Api {
           this.hash = null;
           return this.req(method, params);
         } else {
+          console.log("UNKNOWN API ERROR: ", r);
           throw "unknown api error";
         }
       };
