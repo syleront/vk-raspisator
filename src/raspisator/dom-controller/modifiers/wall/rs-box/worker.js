@@ -208,8 +208,8 @@ class RsWorker {
 
                   WrBody.logOk(`Пользователь <a href="/id${id}">${id}</a> - запись сделана`);
                 } catch (e) {
-                  if (needWebApi === true && e[4] === "8") {
-                    WrBody.logError(`Пользователь <a href="/id${id}">${id}</a> - ${e[5]}`);
+                  if (needWebApi === true && e[0] == "8") {
+                    WrBody.logError(`Пользователь <a href="/id${id}">${id}</a> - ${e[1][0]}`);
                   } else if (e.error && e.error.error_msg) {
                     WrBody.logError(`Пользователь <a href="/id${id}">${id}</a> - ${e.error.error_msg} (${e.error.error_code})`);
                   } else {

@@ -48,8 +48,19 @@ class Api {
 
         let callInfo = r.replace(/^<!-+/, "").split("<!>");
 
-        if (callInfo[4] === "0" || callInfo.length === 1) {
-          let json = JSON.parse(callInfo.length === 1 ? callInfo[0] : callInfo[5]);
+        let payload;
+        if (callInfo.length === 1) {
+          payload = JSON.parse(callInfo[0]).payload;
+        } else {
+          callInfo.splice(callInfo.indexOf(callInfo[4]), 1);
+          callInfo.splice(callInfo.indexOf(callInfo[5]), 1);
+          payload = [callInfo[4], callInfo];
+        }
+
+        console.log("PAYLOAD:", payload);
+
+        if (payload[0] == 0) {
+          let json = JSON.parse(payload[1]);
 
           if (json.payload && json.payload[1]) {
             json = JSON.parse(json.payload[1][0]);
@@ -60,7 +71,7 @@ class Api {
           } else {
             return json.response || json;
           }
-        } else if (callInfo[4] === "8") {
+        } else if (payload[0] == 8) {
           this.hash = null;
           return this.req(method, params);
         } else {

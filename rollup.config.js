@@ -14,9 +14,9 @@ export default {
     json(),
     html(),
     css(),
-    strip({
+    /* strip({
       functions: ["console.log"],
-    }),
+    }), */
     minify({
       comments: false
     }),

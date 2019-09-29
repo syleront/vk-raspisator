@@ -7,12 +7,21 @@ class WebBindings {
     const url = `https://vk.com${path.startsWith("/") ? path : "/" + path}`;
     const res = await Request.post(url, { formData: true, body: data });
 
-    const callInfo = res.split("<!>");
+    let callInfo = res.replace(/^<!-+/, "").split("<!>");
 
-    if (callInfo[4] === "8") {
-      throw callInfo;
+    let payload;
+    if (callInfo.length === 1) {
+      payload = JSON.parse(callInfo[0]).payload;
     } else {
-      return callInfo;
+      callInfo.splice(callInfo.indexOf(callInfo[4]), 1);
+      callInfo.splice(callInfo.indexOf(callInfo[5]), 1);
+      payload = [callInfo[4], callInfo];
+    }
+
+    if (payload[0] == "8") {
+      throw payload;
+    } else {
+      return payload;
     }
   }
 
