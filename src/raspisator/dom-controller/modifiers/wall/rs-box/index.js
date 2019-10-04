@@ -102,7 +102,14 @@ class RsBox {
     // добавляем кнопку для рассылки
     MainBox.addButton("Начать", () => {
       // получаем данные с тела расписатора
-      const { needSubscribe, sendType, needWebApi, countRecievedUsers } = RsBody.getSendParams();
+      const {
+        needSubscribe,
+        sendType,
+        needWebApi,
+        countRecievedUsers,
+        needInterval,
+        intervalValue
+      } = RsBody.getSendParams();
       const sendData = RsBody.getSendData();
 
       // если ничего нет, то рассылать бессмысленно
@@ -123,7 +130,9 @@ class RsBox {
           sendType,
           sendData,
           needWebApi,
-          countRecievedUsers
+          countRecievedUsers,
+          needInterval,
+          intervalValue
         });
 
         // запускаем, и получаем бокс воркера

@@ -27,6 +27,7 @@ class RsBody {
       audio_attach: body.querySelector(".ms_item_audio"),
       doc_attach: body.querySelector(".ms_item_doc"),
       checkboxes: Array.from(body.querySelectorAll(".checkbox")),
+      interval_options: Array.from(body.querySelectorAll(".rs-select.interval > option")),
       saveData(type, data, isRemove) {
         // если нет данных в Storage - создаем
         if (!Storage.saved[postId]) {
@@ -64,14 +65,16 @@ class RsBody {
         };
       },
       getSendParams() {
-        const { checkboxes } = this;
+        const { checkboxes, interval_options } = this;
 
         const sendType = checkboxes.filter((e) => e.dataset.paramType === "sendBy" && e.getAttribute("aria-checked") === "true")[0].dataset.sendType;
         const needSubscribe = checkboxes.filter((e) => e.dataset.paramType === "needSubscribe")[0].getAttribute("aria-checked") === "true";
         const countRecievedUsers = checkboxes.filter((e) => e.dataset.paramType === "countRecievedUsers")[0].getAttribute("aria-checked") === "true";
         const needWebApi = checkboxes.filter((e) => e.dataset.paramType === "needWebApi")[0].getAttribute("aria-checked") === "true";
+        const needInterval = checkboxes.filter((e) => e.dataset.paramType === "needInterval")[0].getAttribute("aria-checked") === "true";
+        const intervalValue = parseInt(interval_options.filter((e) => e.selected === true)[0].dataset.interval) * 1000;
 
-        return { sendType, needSubscribe, needWebApi, countRecievedUsers };
+        return { sendType, needSubscribe, needWebApi, countRecievedUsers, needInterval, intervalValue };
       },
       addToStash(attachment) {
         this.media_stash.push(attachment);
@@ -315,6 +318,10 @@ class RsBody {
 
     // сохраняем данные
     Controls.saveData("params", Controls.getSendParams());
+
+    body.querySelector(".header").addEventListener("click", () => {
+      console.log("DATA:", Controls.getSendData(), "PARAMS:", Controls.getSendParams());
+    });
 
     return Controls;
   }

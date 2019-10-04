@@ -110,6 +110,15 @@
   margin-left: 5px;
 }
 
+.rs-box .settings-container .rs_sl .rs-select {
+  margin-left: 10px;
+
+  /* vanilla dark vk support */
+  background: var(--color3);
+  border-color: var(--color7);
+  color: var(--color6)
+}
+
 .rs-box .attach-controls {
   display: flex;
   justify-content: flex-end;
@@ -136,7 +145,7 @@
   flex-direction: column;
 }
 
-.worker-body .progress-container > .wr-pb {
+.worker-body .progress-container>.wr-pb {
   margin-top: 7px;
   align-self: center;
   width: 80%;

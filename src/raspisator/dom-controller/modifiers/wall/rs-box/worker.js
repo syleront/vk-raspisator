@@ -1,5 +1,6 @@
 import VKBox from "../../../tools/box-controller";
 import Events from "../../../../tools/event-emitter";
+import asyncSleep from "../../../../tools/async-sleep";
 
 import WorkerBody from "./components/worker-body";
 
@@ -12,7 +13,9 @@ class RsWorker {
       sendType,
       sendData,
       needWebApi,
-      countRecievedUsers
+      countRecievedUsers,
+      needInterval,
+      intervalValue
     } = params;
 
     this.rs = rs;
@@ -22,6 +25,8 @@ class RsWorker {
     this.sendData = sendData;
     this.needWebApi = needWebApi;
     this.countRecievedUsers = countRecievedUsers;
+    this.needInterval = needInterval;
+    this.intervalValue = intervalValue;
 
     this.stopState = false;
     this.endState = false;
@@ -48,6 +53,8 @@ class RsWorker {
       sendData,
       needWebApi,
       countRecievedUsers,
+      needInterval,
+      intervalValue,
       events
     } = this;
 
@@ -75,6 +82,7 @@ class RsWorker {
       let isStopDetected; // переменная для проверки, если рассылка была прервана
 
       WrBody.logOk(`Рассылка по ${sendType === "repost" ? "репостам" : "лайкам"}`);
+      WrBody.logOk(`Интервал рассылки: ${needInterval ? (intervalValue / 1000) + "c" : "не установлен"}`);
       WrBody.logOk("Получение списка...");
 
       isStopDetected = await (async function getAll(offset) {
@@ -216,6 +224,13 @@ class RsWorker {
                     WrBody.logError(`Пользователь <a href="/id${id}">${id}</a> - запись не сделана`);
                     WrBody.logError(e);
                   }
+                }
+
+                // если последний элемент списка, ждать нет смысла
+                if (i === userList.length - 1) {
+                  continue;
+                } else if (needInterval === true) {
+                  await asyncSleep(intervalValue);
                 }
               }
             }
